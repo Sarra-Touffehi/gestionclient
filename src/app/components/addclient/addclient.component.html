@@ -1,0 +1,96 @@
+<h1 style="text-align: center;">Ajouter un client</h1>
+<div class="container ">
+<form [formGroup]="addclForm" (ngSubmit)="onSubmit()" > <!--  addForm.reset()-->
+<label>CIN</label><br/>
+<input type="number" formControlName="cin">
+<div *ngIf="cin?.invalid && cin?.touched "
+class="alert alert-danger">
+le numéro a une taille non valide
+</div>
+<br/><label>Nom</label><br/>
+<input type="text" formControlName="nom">
+
+<div *ngIf= "isValidPattern()" class="alert alert-danger">
+    Format nom respecté
+    </div>
+<br/><label>Prénom</label><br/>
+<input type="text" formControlName="prenom">
+
+<div *ngIf= "isValidPattern1()" class="alert alert-danger">
+   Format nom respecté
+    </div>
+<br/><label> Date de naissance </label><br/>
+<input type="date" formControlName="datenaiss">
+<div *ngIf=" datenaiss &&  datenaiss.invalid && datenaiss.touched" class="alert alert-danger">
+    Date de naissance est obligatoire
+    </div>
+<br/><label>sexe</label><br/>
+Femme
+<input type="checkbox" formControlName="femme" name="c1"> 
+Homme
+<input type="checkbox" formControlName="homme" name="c1"> 
+<br/><label>Adresse</label><br/>
+<input type="text" formControlName="adresse">
+<div *ngIf=" adresse &&  adresse.invalid && adresse.touched" class="alert alert-danger">
+   adresse est obligatoire
+    </div>
+<br/><label>Numéro de téléphone </label><br/>
+<input type="tel" formControlName="num">
+
+     <div *ngIf="num?.invalid && num?.touched "
+class="alert alert-danger">
+le numéro a une taille non valide
+</div>
+
+<br/><label>Email</label><br/>
+<input type="email" formControlName="email">
+<br/><label>Salaire</label><br/>
+<input type="number" formControlName="salaire"><br/>
+<div *ngIf=" salaire &&  salaire.invalid && salaire.touched" class="alert alert-danger">
+   salaire est obligatoire
+      </div>
+
+<label>Code segment</label><br/>
+<input type="number" formControlName="codeseg"><br/>
+<div *ngIf=" codeseg &&  codeseg.invalid && codeseg.touched" class="alert alert-danger">
+   Code segment  est obligatoire
+       </div>
+<br/><label>Charge de crédit</label><br/>
+<input type="text" formControlName="chargecred">
+<div *ngIf=" chargecred &&  chargecred.invalid && chargecred.touched" class="alert alert-danger">
+    Champ obligatoire
+        </div>
+
+<br/><label>Occupation</label><br/>
+<input type="text" formControlName="occ">
+<div *ngIf="occ &&  occ.invalid && occ.touched" class="alert alert-danger">
+   Occupation  est obligatoire
+        </div>
+<br/><label>Domaine d'activité</label><br/>
+<input type="text" formControlName="domaine">
+
+<br/><label>Date de la création</label> <br/>
+<input type="date" formControlName="datecreation">
+<div *ngIf="datecreation &&  datecreation.invalid && datecreation.touched" class="alert alert-danger">
+   Date de la création est obligatoire
+         </div>
+<br/><label>Score du crédit</label> <br/>
+<input type="number" formControlName="scorecred">
+<div *ngIf="scorecred &&  scorecred.invalid && scorecred.touched" class="alert alert-danger">
+    Score de crédit est obligatoire
+          </div>
+<br/><label>Niveau d'étude</label><br/>
+<input type="text" formControlName="niv">
+<br/><label>L'état civil </label>
+<select formControlName="etatCivil">
+    <option value="celibataire">Célibataire</option>
+    <option value="marie">Marié(e)</option>
+    <option value="divorce">Divorcé(e)</option>
+
+</select>
+<br/><label>Current assets</label><br/>
+<input type="text" formControlName="assets"><br/>
+<br/><button type="submit" class="btn btn-primary"  [disabled]="addclForm.invalid">Ajouter</button>
+<button type="reset" class="btn btn-secondary">Initialiser</button>
+</form>
+</div>

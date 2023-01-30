@@ -1,0 +1,78 @@
+<h1 style="text-align: center;">Ajouter un utilisateur</h1>
+<div class="container ">
+<form [formGroup]="adduserForm" (ngSubmit)="onSubmit()" ><!-- addForm.reset()-->
+<label>CIN</label><br/>
+<input type="number" formControlName="cin">
+
+<div *ngIf="cin?.invalid && cin?.touched "
+class="alert alert-danger">
+le numéro a une taille non valide
+</div>
+
+<br/><label>Nom</label><br/>
+<input type="text" formControlName="nom">
+<div *ngIf= "isValidPattern()" class="alert alert-danger">
+    Format nom respecté
+    </div>
+
+
+<br/><label>Prénom</label><br/>
+<input type="text" formControlName="prenom">
+<div *ngIf= "isValidPattern1()" class="alert alert-danger">
+    Format nom respecté
+     </div>
+
+
+<br/><label> Date de naissance </label><br/>
+<input type="date" formControlName="datenaiss">
+
+<div *ngIf=" datenaiss &&  datenaiss.invalid && datenaiss.touched" class="alert alert-danger">
+    Date de naissance est obligatoire
+    </div>
+<br/><label>sexe</label><br/>
+Femme
+<input type="checkbox" formControlName="femme" name="c1"> 
+Homme
+<input type="checkbox" formControlName="homme" name="c1"> 
+<br/><label>Adresse</label><br/>
+<input type="text" formControlName="adresse">
+
+<div *ngIf=" adresse &&  adresse.invalid && adresse.touched" class="alert alert-danger">
+    adresse est obligatoire
+     </div>
+
+<br/>Role 
+<select formControlName="role">
+    <option value="admin">Admin</option>
+    <option value="agentcc">AgentCC</option>
+</select>
+<br/><label>Email</label>
+<br/><input type="email" formControlName="email">
+<div *ngIf=" email &&  email.invalid && email.touched" class="alert alert-danger">
+    email est obligatoire
+     </div>
+
+
+<br/><label>Date Début</label> <br/>
+<input type="date" formControlName="datedebut"><br/>
+<div *ngIf="datedebut &&  datedebut.invalid && datedebut.touched" class="alert alert-danger">
+    Date de début est obligatoire
+          </div>
+<label>Département</label>
+<select formControlName="depa">
+<option>RH</option>
+<option>IT</option>
+<option>Finance</option>
+<option>Marketing</option>
+</select>
+<br/><label>Code Manager</label>
+<input type="number" formControlName="code">
+<div *ngIf="code &&  code.invalid && code.touched" class="alert alert-danger">
+    Code Manager est obligatoire
+          </div>
+
+
+<br/><button type="submit" class="btn btn-primary">Ajouter</button>
+<button type="reset" class="btn btn-secondary" [disabled]="adduserForm.invalid">Initialiser</button>
+</form>
+</div>

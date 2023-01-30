@@ -1,0 +1,31 @@
+<h1>La liste des Clients Advans Tunisie</h1>
+<table>
+    <thead>
+      <tr>
+        <th>CIN</th>
+        <th>Nom</th>
+        <th>Préom</th>
+        <th>Sexe</th>
+        <th>Adresse</th>
+        <th>Numéro de téléphone</th>
+        <th>Email</th>
+    </tr>
+    </thead>
+    <tbody>
+     <!-- <tr *ngFor="let client of clients">
+        <td>{{ client.cin }}</td>
+        <td>{{ client.nom }}</td>
+        <td>{{ client.prenom }}</td>
+        <td>{{ client.sexe }}</td>
+        <td>{{ client.adresse }}</td>
+        <td>{{ client.numero }}</td>
+        <td>{{ client.email }}</td>-->
+        <td><a (click)="detailsClient()"><i class="fa-regular fa-circle-info"></i></a>Détails</td>
+        <td><a ><i class="fas fa-edit"></i></a>Modifier</td><!--(click)="editClient(client)-->
+        <td> <a ><i class="fas fa-trash"></i></a>Supprimer</td><!--(click)="deleteClient(client)"-->
+     <!--</tr>--> 
+    </tbody>
+  </table>
+  
+  
+ 

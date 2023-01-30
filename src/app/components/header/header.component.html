@@ -2,17 +2,23 @@
     <div class="container-fluid flex-container" style="color: white; font-size: 20px; background-color: rgb(250, 208, 231);">
    <nav class="navbar bg-body-tertiary">
     <div class="container">
-   <div> <img src="" alt="advanslogo" width="30" height="24"></div>
+    <div><img src="assets/logoad.png" alt="advanslogo" width="100" height="60"/></div>
  <div> <a routerLinkActive="actif" [routerLink]="['accueil']">Accueil</a></div>
       <div><a routerLinkActive="actif"  [routerLink]="['apropos']"  class="nav-item">A Propos</a></div>
       <div class="icons">
-        <i class="fas fa-user" id="login-btn" ></i><!--(click)="toform()"-->
-      </div>
-    </div>
-  </nav>
-    </div>
-</div>
-    
+        <a [routerLink]="['/login']">
+        
+        <i class="fas fa-user" (click)="Afficher()" id="login-btn" > </i></a>
+        </div>
+        </div>
+        </nav>
+        </div>
+        </div>
+        
+  
+
+
+  
 
     
     

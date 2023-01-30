@@ -1,0 +1,10 @@
+/*.container
+{  background: #6a11cb;
+    
+    background: -webkit-linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1));
+    
+ 
+    background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1));}*/
+    
+    input.ng-valid { border-left: 2px solid green; }
+input.ng-invalid { border-left: 2px solid red; }

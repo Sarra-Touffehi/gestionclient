@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthentificationService } from 'src/app/services/authentification.service';
 
 @Component({
   selector: 'app-header',
@@ -9,13 +10,19 @@ import { Router } from '@angular/router';
 export class HeaderComponent implements OnInit {
 
 
-  constructor() { }//private router:Router 
- // toform(){
-    //this.router.navigate(['../login']);}
-
-
+  constructor(private router: Router, private authentificationservice: AuthentificationService) {}
+  /*toform(){
+    this.router.navigate(['/login']);}
+  
+toform(){
+    this.authentificationservice.toform();
+  }*/
+  Afficher(){
+    this.router.navigate(['/login']);
+  }
   ngOnInit(): void {
     
 
-}
-}
+}}
+
+
