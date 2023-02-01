@@ -15,8 +15,5 @@ export class AuthentificationService {
     return this.http.post(this.apiUrl, credentials);
   }
 }
- /* toform(){
-    this.router.navigate(['/login']);
-  }*/
-
+ 
 

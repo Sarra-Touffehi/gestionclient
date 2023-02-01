@@ -28,32 +28,27 @@ export class LoginComponent implements OnInit {
       username:['',Validators.required],
       password:['', Validators.required],
     
+
+
     })
     
   }
- /*SignIn() {
-     
-    if (this.loginForm.valid) {
-        this.authentificationservice.login(this.loginForm.value);
-    }
-}*/
-SignIn() {
+ 
+/*SignIn() {
   if (this.loginForm.valid) {
     this.authentificationservice.login(this.loginForm.value)
-      .subscribe(res => {
-        if (res) {
-          // navigate to some other component or home page
-          this.router.navigate(['/home']);
-        } else {
-          // show an error message
-          console.log('Invalid username or password');
+      .subscribe(data => {
+        if (data.role === 'admin') {
+          this.router.navigate(['/dashbordadmin']);
+        } else if (data.role === 'agent') {
+          this.router.navigate(['/dashbordagent']);
         }
       });
   }
- 
+}*/
+  
+}
 
-}
-}
     /*get username() {
       return this.loginForm.get('username');
     }

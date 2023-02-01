@@ -14,6 +14,8 @@ import { AddclientComponent } from './components/addclient/addclient.component';
 import { AddUserComponent } from './components/add-user/add-user.component';
 import { ListClientsComponent } from './components/list-clients/list-clients.component';
 import { DetailsClientComponent } from './components/details-client/details-client.component';
+import { DashbordAdminComponent } from './components/dashbord-admin/dashbord-admin.component';
+import { DashbordAgentComponent } from './components/dashbord-agent/dashbord-agent.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,8 @@ import { DetailsClientComponent } from './components/details-client/details-clie
     AddUserComponent,
     ListClientsComponent,
     DetailsClientComponent,
+    DashbordAdminComponent,
+    DashbordAgentComponent,
     
   ],
   imports: [
