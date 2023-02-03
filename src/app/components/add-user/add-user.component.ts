@@ -114,13 +114,13 @@ SendDatetoFunction(event: any) {
 }
 
 AddUser(){
-  console.log(this.user);
+ /* console.log(this.user);
   this.authentificationservice.Add(this.user)
   
-  .subscribe(
+ /* .subscribe(
     res=>{//this.adduserForm.value;
      this.user={
-       ID: this.adduserForm.controls.id,
+      ID: this.adduserForm.controls.id,
        CIN: this.adduserForm.controls.cin,
        FirstName: this.adduserForm.controls.nom,
        LastName: this.adduserForm.controls.prenom,
@@ -146,8 +146,8 @@ AddUser(){
     
   }
 }
-
-
+*/
+}}
 /*
 AddUser(){
 if(this.adduserForm.valid)
