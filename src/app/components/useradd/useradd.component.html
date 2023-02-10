@@ -1,0 +1,66 @@
+
+<h1 style="text-align: center;">Ajouter un utilisateur</h1>
+<div class="container ">
+<form  [formGroup]="adduserForm" (ngSubmit)="AddUser()">
+ 
+<label for="cin" class="form-label">CIN</label><br/>
+<input [(ngModel)]="adduserRequest.cin"  type="text" formControlName="cin" id="cin">
+
+<br/><label for="nom" class="form-label">Nom</label><br/>
+<input [(ngModel)]="adduserRequest.firstName" type="text" formControlName="nom" id="nom">
+
+
+<br/><label for="prenom" class="form-label">Prénom</label><br/>
+<input [(ngModel)]="adduserRequest.lastName" type="text" formControlName="prenom" id="prenom">
+
+<br/><label for="adress" class="form-label">Adresse</label><br/>
+<input  [(ngModel)]="adduserRequest.address" type="text" formControlName="adresse" id="adress">
+
+<br/><label for="Username" class="form-label">Nom d'utilisateur</label><br/>
+<input  [(ngModel)]="adduserRequest.userName" type="text" formControlName="Username" id="username"><br/>
+
+
+<label for="pass" class="form-label">mot de passe</label><br/>
+<input [(ngModel)]="adduserRequest.password" type="password" formControlName="pass" id="pass"><br/>
+
+<br/><label for="role" class="form-label">Role</label> 
+<select #role (change)="onSlected(role.value)" formControlName="role"  [(ngModel)]="adduserRequest.role" name="role">
+    <option default value="Admin">Admin</option>
+    <option value="Agent">AgentCC</option>
+</select>
+
+<br/><label> Date de naissance </label><br/>
+<input type="date" [ngModel]="adduserRequest.dateOfBirth" formControlName="datenaiss">
+
+<br/><label>sexe</label><br/>
+
+<input #test [(ngModel)]="adduserRequest.gender" type="radio" formControlName="gender" id="genderf" name="gender" value="femme" (change)="radioFun(test.value)"> 
+
+<label>Femme</label>
+<input #test1 [(ngModel)]="adduserRequest.gender" type="radio" formControlName="gender" id="genderh" name="gender" value="homme" (change)="radioFun1(test.value)"> 
+<label>Homme</label>
+
+
+<br/><label>Email</label>
+<br/><input  [(ngModel)]="adduserRequest.email" type="text" formControlName="email">
+
+<br/><label>Date Début</label> <br/>
+<input type="date" [ngModel]="adduserRequest.startDateInAdvans" formControlName="datedebut"><br/>
+
+<label>Département</label><br/>
+<select  #departement (change)="onSlecteddep(departement.value)" formControlName="depa" [(ngModel)]="adduserRequest.departement" name="departement">
+<option>RH</option>
+<option>IT</option>
+<option>Finance</option>
+<option>Marketing</option>
+</select>
+
+<br/><label>Agence</label><br/>
+<input [(ngModel)]="adduserRequest.agence" type="text" formControlName="agence">
+
+<br/><label>Code Manager</label><br/>
+<input  [(ngModel)]="adduserRequest.manager_STF_Code" type="number" formControlName="code">
+<br/><button type="submit" class="btn btn-primary" >Ajouter</button>
+<button type="reset" class="btn btn-secondary" [disabled]="adduserForm.invalid">Initialiser</button>
+</form>
+</div>

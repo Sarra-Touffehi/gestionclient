@@ -1,0 +1,76 @@
+
+
+<div class="container my-5">
+<h1 class="mb-3">Liste des utilisateurs</h1>
+<table class="table" *ngIf="listing && listing.length>0"> 
+    <thead>
+    <tr>
+       <th>ID</th> 
+        <th>CIN</th>
+        <th>Nom</th>
+        <th>Prénom</th>
+        <th>Adresse</th>
+        <th>Nom d'utilisateur</th>
+        <th>Mot de passe</th>
+        <th>Role</th>
+        <th>Date naissance</th>
+        <th>Sexe</th>
+        <th>Email</th>
+        <th>Date Début</th>
+        <th>Departement</th>
+        <th>Agence</th>
+        <th>Code Manager</th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let u of listing">
+       <td>{{u.id}}</td> 
+            <td>{{ u.cin }}</td>
+            <td>{{ u.firstName}}</td>
+            <td>{{ u.lastName }}</td>
+            <td>{{ u.address}}</td>
+            <td>{{ u.userName }}</td>
+            <td>{{ u.password }}</td>
+            <td>{{ u.role }}</td>
+            <td>{{u.dateOfBirth}}</td>
+            <td>{{u.gender}}</td>
+            <td>{{u.email}}</td>
+            <td>{{u.startDateInAdvans}}</td> 
+        
+             
+            <td>{{u.departement}}</td>
+            <td>{{ u.agence}}</td>
+            <td>{{u.manager_STF_Code}}</td>
+
+
+            <td><a [routerLink]="['/edituser',u.id]"><i class="fa-regular fa-eye"></i> </a>View </td>
+        
+         </tr>
+        </tbody>
+      </table>
+    </div>
+<!-- On rows
+<tr class="table-active">...</tr>
+
+<tr class="table-primary">...</tr>
+<tr class="table-secondary">...</tr>
+<tr class="table-success">...</tr>
+<tr class="table-danger">...</tr>
+<tr class="table-warning">...</tr>
+<tr class="table-info">...</tr>
+<tr class="table-light">...</tr>
+<tr class="table-dark">...</tr>
+
+ On cells (`td` or `th`) 
+<tr>
+  <td class="table-active">...</td>
+
+  <td class="table-primary">...</td>
+  <td class="table-secondary">...</td>
+  <td class="table-success">...</td>
+  <td class="table-danger">...</td>
+  <td class="table-warning">...</td>
+  <td class="table-info">...</td>
+  <td class="table-light">...</td>
+  <td class="table-dark">...</td>
+</tr>-->

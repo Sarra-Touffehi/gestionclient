@@ -1,6 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Client } from 'src/app/models/client';
+import { ClientserviceService } from 'src/app/services/clientservice.service';
+import { DataserviceService } from 'src/app/services/dataservice.service';
 
 @Component({
   selector: 'app-list-clients',
@@ -8,16 +11,29 @@ import { Router } from '@angular/router';
   styleUrls: ['./list-clients.component.css']
 })
 export class ListClientsComponent implements OnInit {
+  listing : Client[]= [];
 
-  /*clients: any[];*/
 
 
-  constructor(private http: HttpClient,private router: Router) { }
+  constructor(private http: HttpClient,private router: Router,private clientservice:ClientserviceService) { }
 
   ngOnInit(): void {
-  //  this.getClients();
+    this.clientservice.GetAllClients()
+    .subscribe({
+      next: (clients)=>{
+        this.listing= clients;
+        console.log(this.listing);
+      },
+      error :(response)=>{
+        console.log(response);
+      }
+    })
     
-}
+    }
+  
+    detailsClient(){
+      this.router.navigate(['/detailsclient']);
+    }
 /*getClients() {this.http.get('https://your-api-url.com/api/clients')
       .subscribe(data => {
         this.clients = data;
@@ -44,9 +60,7 @@ deleteClient(client) {
       console.log(error);
     });
 }*/
-detailsClient(){
-  this.router.navigate(['/detailsclient']);
-}
+
 }
 
 

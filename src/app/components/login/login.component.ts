@@ -42,11 +42,12 @@ SignIn() {
         next:(res)=>{alert(res.message)
           console.log(res);
           console.log("hello");
+          this.router.navigate(['/dashbordadmin']);
           //this.loginForm.reset();
 
         /*  if(this.loginForm.get('role').value=='Admin')
-         { this.router.navigate(['dashbordadmin']);}
-         else if(this.loginForm.get('role').value=='AgentCC')
+         { this.router.navigate(['/dashbordadmin']);}
+         else if(this.loginForm.get('role').value=='Agent')
 {          this.router.navigate(['/dashbordagent']);
         }*/
         },

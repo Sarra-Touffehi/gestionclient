@@ -11,5 +11,7 @@ export class DashbordAdminComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  deconnecter(){
+    
+  }
 }

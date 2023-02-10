@@ -1,35 +1,35 @@
 <h1 style="text-align: center;">Ajouter un utilisateur</h1>
 <div class="container ">
-<form [formGroup]="adduserForm" ><!-- addForm.reset()--><!--"onSubmit()(ngSubmit)="AddUser()" " -->
+<form [formGroup]="adduserForm" ><!-- addForm.reset()--><!--"onSubmit()" " --><!--(ngSubmit)="AddUser()"-->
 <label>ID</label><br/>
-<!--<input [(ngModel)]="user.ID" type="number" formControlName="id"><br/>-->
+<input [(ngModel)]="user.id" type="number" formControlName="id"><br/>
 
 <label>CIN</label><br/>
 <input [(ngModel)]="user.CIN"  type="text" formControlName="cin">
 
-<div *ngIf="cin?.invalid && cin?.touched "
+<!--<div *ngIf="cin?.invalid && cin?.touched "
 class="alert alert-danger">
 le numéro a une taille non valide
-</div>
+</div>-->
 
 <br/><label>Nom</label><br/>
 <input [(ngModel)]="user.FirstName" type="text" formControlName="nom">
-<div *ngIf= "isValidPattern()" class="alert alert-danger">
+<!-- <div *ngIf= "isValidPattern()" class="alert alert-danger">
     Format nom respecté
-    </div>
+    </div> -->
 
 
 <br/><label>Prénom</label><br/>
 <input [(ngModel)]="user.LastName" type="text" formControlName="prenom">
-<div *ngIf= "isValidPattern1()" class="alert alert-danger">
+<!-- <div *ngIf= "isValidPattern1()" class="alert alert-danger">
     Format nom respecté
-     </div>
+     </div> -->
      <br/><label>Adresse</label><br/>
      <input  [(ngModel)]="user.Address" type="text" formControlName="adresse">
      
-     <div *ngIf=" adresse &&  adresse.invalid && adresse.touched" class="alert alert-danger">
+    <!--  <div *ngIf=" adresse &&  adresse.invalid && adresse.touched" class="alert alert-danger">
          adresse est obligatoire
-          </div>
+          </div> -->
           <br/><label>Nom d'utilisateur</label><br/>
           <input  [(ngModel)]="user.UserName" type="text" formControlName="Username"><br/>
           <label>mot de passe</label><br/>
@@ -44,7 +44,7 @@ le numéro a une taille non valide
 
 
           <br/><label> Date de naissance </label><br/>
-
+<input type="text" [ngModel]="user.DateOfBirth" formControlName="datenaiss">
 <!-- <input  (change)="SendDatetoFunction($event)" [ngModel]="user.DateOfBirth | date:'AAAA-MM-JJT heure:minute:seconde'" type="datetime" formControlName="datenaiss"> -->
  <!-- <input  (change)="SendDatetoFunction($event)" [ngModel]="user.DateOfBirth" type="date" formControlName="datenaiss"> -->
 
@@ -56,7 +56,7 @@ le numéro a une taille non valide
 <input #test [(ngModel)]="user.Gender" type="radio" formControlName="gender" id="gender" name="gender" value="femme" (change)="radioFun(test.value)"> 
 
 <label>Femme</label>
-
+<input #test [(ngModel)]="user.Gender" type="radio" formControlName="gender" id="gender" name="gender" value="homme" (change)="radioFun(test.value)"> 
 <label>Homme</label>
 
 
@@ -64,12 +64,13 @@ le numéro a une taille non valide
 
 <br/><label>Email</label>
 <br/><input  [(ngModel)]="user.Email" type="text" formControlName="email">
-<div *ngIf=" email &&  email.invalid && email.touched" class="alert alert-danger">
+<!-- <div *ngIf=" email &&  email.invalid && email.touched" class="alert alert-danger">
     email est obligatoire
      </div>
-
+ -->
 
 <br/><label>Date Début</label> <br/>
+<input type="text" [ngModel]="user.StartDateInAdvans" formControlName="datedebut">
 <!-- <input [ngModel]="user.StartDateInAdvans| date:'AAAA-MM-JJT heure:minute:seconde '" type="datetime" formControlName="datedebut"><br/> -->
 <!-- <div *ngIf="datedebut &&  datedebut.invalid && datedebut.touched" class="alert alert-danger">
     Date de début est obligatoire
@@ -82,16 +83,16 @@ le numéro a une taille non valide
 <option>Marketing</option>
 </select>
 
-<br/>Agence
+<br/><label>Agence</label>
 <input [(ngModel)]="user.Agence" type="text" formControlName="agence">
 <br/><label>Code Manager</label>
 <input  [(ngModel)]="user.Manager_STF_Code" type="number" formControlName="code">
-<div *ngIf="code &&  code.invalid && code.touched" class="alert alert-danger">
+<!-- <div *ngIf="code &&  code.invalid && code.touched" class="alert alert-danger">
     Code Manager est obligatoire
-          </div>
+          </div> -->
 
 
-<br/><button type="submit" class="btn btn-primary" (click)="AddUser()">Ajouter</button><!-- -->
+<br/><button type="submit" class="btn btn-primary" >Ajouter</button><!-- (click)="AddUser()"-->
 <button type="reset" class="btn btn-secondary" [disabled]="adduserForm.invalid">Initialiser</button>
 </form>
 </div>

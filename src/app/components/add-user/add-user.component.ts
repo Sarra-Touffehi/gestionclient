@@ -1,17 +1,17 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import {  FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AuthentificationService } from 'src/app/services/authentification.service';
 import { NgModule } from '@angular/core';
 import { Router } from '@angular/router';
-
+import { DataserviceService } from 'src/app/services/dataservice.service';
+//import { User } from 'src/app/models/user';
 @Component({
   selector: 'app-add-user',
   templateUrl: './add-user.component.html',
   styleUrls: ['./add-user.component.css']
 })
 export class AddUserComponent implements OnInit {
-  user={
+ /* user={
   id : String,
   CIN : String ,
   FirstName: String ,
@@ -27,11 +27,32 @@ export class AddUserComponent implements OnInit {
   Departement: String,
   Agence: String,
   Manager_STF_Code: String,
-  }
+  }*/
  
- constructor(private formBuilder: FormBuilder,private http: HttpClient, private authentificationservice:AuthentificationService,private router:Router) { }
+ user={
+  id : '',
+  CIN :'' ,
+  FirstName: '',
+  LastName: '' ,
+  Address:'',
+  UserName:'' ,
+  Password: '',
+  Role:'' ,
+  DateOfBirth: '',
+  Gender: '',
+  Email:'' ,
+  StartDateInAdvans: '',
+  Departement:'' ,
+  Agence: '',
+  Manager_STF_Code:'',
+  }
+  //user: User = new User();
+ /* user: User = new User(1,"CIN ","FirstName","LastName","Address","UserName","Password","Role","DateOfBirth", "Gender","Email",
+  "StartDateInAdvans","Departement","Agence",1);*/
+ 
+ constructor(private formBuilder: FormBuilder,private http: HttpClient, private dataService:DataserviceService,private router:Router) { }
 
-  get cin(){
+  /*get cin(){
     return this.adduserForm.get('cin');
     }
     get nom(){
@@ -40,21 +61,21 @@ export class AddUserComponent implements OnInit {
     get prenom(){
       return this.adduserForm.get('prenom');
     }
-    /*get  datenaiss(){
+    get  datenaiss(){
       return this.adduserForm.get('datenaiss');
-    }*/
+    }
     get adresse(){
       return this.adduserForm.get('adresse');
      }
 get email(){
   return this.adduserForm.get('email');
 }
-/*get datedebut(){
+get datedebut(){
   return this.adduserForm.get('datedebut');
-}*/
+}
 get code(){
   return this.adduserForm.get('code');
-}
+}*/
     isValidPattern(){
       return this.adduserForm.get('nom')?.errors?.['pattern']
       && this.adduserForm.controls['nom'].touched; 
@@ -113,11 +134,11 @@ SendDatetoFunction(event: any) {
   console.log(event.target.value);
 }
 
-AddUser(){
- /* console.log(this.user);
-  this.authentificationservice.Add(this.user)
+/*AddUser(){
+  console.log(this.user);
+  /*this.authentificationservice.Add(this.user)
   
- /* .subscribe(
+  .subscribe(
     res=>{//this.adduserForm.value;
      this.user={
       ID: this.adduserForm.controls.id,
@@ -138,16 +159,85 @@ AddUser(){
       }
       console.log(res);
       this.ngOnInit();
+    },*/
+   /* AddUser(){
+      console.log(this.user);
+      this.dataService.AddUser(this.user)
+      
+      .subscribe(
+        res=>{//this.adduserForm.value;
+         this.user={
+          id: '',
+           CIN: '',
+           FirstName: '',
+           LastName: '',
+           Address: '',
+           UserName: '',
+           Password: '',
+          Role: this.selectrole,
+          DateOfBirth: '',
+            Gender: this.test,
+            Email:'',
+           StartDateInAdvans: '',
+            Departement:this.selectdept,
+            Agence: '',
+            Manager_STF_Code: '',
+          }
+          console.log(res);
+          this.ngOnInit();
+         } , error => {
+          console.log(error);
+        }
+      );
+    }
+    
+  
+  }
+*/
+  
+
+
+
+
+
+
+
+/*this.authentificationservice.Add(this.user)
+  
+  .subscribe(
+    res=>{//this.adduserForm.value;
+     this.user={
+      id: '',
+       CIN: this.adduserForm.controls.CIN,
+    nom: this.adduserForm.controls.FirstName,
+       prenom: this.adduserForm.controls.LastName,
+       adresse: this.adduserForm.controls.Address,
+       Username: this.adduserForm.controls.Username,
+      pass: this.adduserForm.controls.Password,
+      Role: this.selectrole,
+      //  DateOfBirth: '',
+        Gender: this.test,
+        email:this.adduserForm.controls.Email,
+       // StartDateInAdvans: '',
+        departement :this.selectdept,
+        agence: this.adduserForm.controls.Agence,
+       Code: this.adduserForm.controls.code,
+      }
+      console.log(res);
+      this.ngOnInit();
     },
+
+
+
       err=>{
         console.log(err);
       }
   )
     
   }
-}
-*/
-}}
+}*/
+
+
 /*
 AddUser(){
 if(this.adduserForm.valid)
@@ -183,8 +273,55 @@ if(this.adduserForm.valid)
 })
 console.log(this.adduserForm.value)}*/
 
+/*AddUser(){
+ 
+  if(this.adduserForm.valid){
+    //perform logic for register
+    this.dataService.AddUser(this.adduserForm.value)
+    .subscribe({
+      next:(res=>{
+        alert(res.message)
+      })
+      ,error:(err=>{
+        alert(err?.error.message)
+      })
+    })
+    console.log(this.adduserForm.value);
+  }*/
+  /*AddUser(){
+   
+ this.user.ID=this.adduserForm.get('id')?.value;
+    this.user.CIN=this.adduserForm.get('cin')?.value;
+    this.user.FirstName=this.adduserForm.get('nom')?.value;
+  this.user.LastName=this.adduserForm.get('prenom')?.value;
+      this.user.Address=this.adduserForm.get('adresse')?.value;
+      this.user.UserName=this.adduserForm.get('Username')?.value;
+      this.user.Password=this.adduserForm.get('pass')?.value;
+  this.user.Role=this.adduserForm.get('role')?.value;
+  this.user.DateOfBirth=this.adduserForm.get('datenaiss')?.value;
+  this.user.Gender=this.adduserForm.get('gender')?.value;
+  this.user.Email=this.adduserForm.get('email')?.value;
+  this.user.StartDateInAdvans=this.adduserForm.get('datedebut')?.value;
+  this.user.Departement=this.adduserForm.get('depa')?.value;
+  this.user.Agence=this.adduserForm.get('agence')?.value;
+  this.user.Manager_STF_Code=this.adduserForm.get('code')?.value;
+    
+
+    this.dataService.AddUser(this.user).subscribe(
+    res=>{
+      console.log("user added successfully");
+    },
+    error=>{
+      console.log("Error adding user");
+    }
+    );
+    }*/
+
+    
+  
+  
+ // }
 
 
 
-
-
+  }

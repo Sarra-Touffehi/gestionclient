@@ -16,6 +16,10 @@ import { ListClientsComponent } from './components/list-clients/list-clients.com
 import { DetailsClientComponent } from './components/details-client/details-client.component';
 import { DashbordAdminComponent } from './components/dashbord-admin/dashbord-admin.component';
 import { DashbordAgentComponent } from './components/dashbord-agent/dashbord-agent.component';
+import { UseraddComponent } from './components/useradd/useradd.component';
+import { ListusersComponent } from './components/listusers/listusers.component';
+import { EdituserComponent } from './components/edituser/edituser.component';
+import { DetailuserComponent } from './components/detailuser/detailuser.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +36,11 @@ import { DashbordAgentComponent } from './components/dashbord-agent/dashbord-age
     DetailsClientComponent,
     DashbordAdminComponent,
     DashbordAgentComponent,
+    UseraddComponent,
+    ListusersComponent,
+    EdituserComponent,
+    DetailuserComponent,
+  
     
   ],
   imports: [

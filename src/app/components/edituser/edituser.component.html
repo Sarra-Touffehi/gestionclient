@@ -1,0 +1,72 @@
+
+<h1 style="text-align: center;">Modifier un utilisateur</h1>
+<div class="container ">
+<form  [formGroup]=" edituserForm" (ngSubmit)="UpdateUser()">
+   
+    <label for="id" class="form-label"> ID</label><br/>
+ <input type="number" id="id" [(ngModel)]="UserDetail.id"  formControlName="id" readonly><br/>
+
+
+
+<label for="cin" class="form-label">CIN</label><br/>
+<input [(ngModel)]="UserDetail.cin" formControlName="cin" type="text"  id="cin">
+
+<br/><label for="nom" class="form-label">Nom</label><br/>
+<input [(ngModel)]="UserDetail.firstName" formControlName="nom" type="text"  id="nom">
+
+
+<br/><label for="prenom" class="form-label">Prénom</label><br/>
+<input [(ngModel)]="UserDetail.lastName" formControlName="prenom" type="text"  id="prenom">
+
+<br/><label for="adress" class="form-label">Adresse</label><br/>
+<input  [(ngModel)]="UserDetail.address" formControlName="adresse" type="text" id="adress">
+
+<br/><label for="Username" class="form-label">Nom d'utilisateur</label><br/>
+<input  [(ngModel)]="UserDetail.userName" type="text" formControlName="Username" id="username"><br/>
+
+
+<label for="pass" class="form-label">mot de passe</label><br/>
+<input [(ngModel)]="UserDetail.password" type="password" formControlName="pass" id="pass"><br/>
+
+<br/><label for="role" class="form-label">Role</label> 
+<select #role (change)="onSlected(role.value)" formControlName="role"  [(ngModel)]="UserDetail.role" name="role">
+    <option default value="Admin">Admin</option>
+    <option value="Agent">AgentCC</option>
+</select>
+
+<br/><label> Date de naissance </label><br/>
+<input type="date" [ngModel]="UserDetail.dateOfBirth" formControlName="datenaiss">
+
+<br/><label>sexe</label><br/>
+
+<input #test [(ngModel)]="UserDetail.gender" type="radio" formControlName="gender" id="genderf" name="gender" value="femme" (change)="radioFun(test.value)"> 
+
+<label>Femme</label>
+<input #test1 [(ngModel)]="UserDetail.gender" type="radio" formControlName="gender" id="genderh" name="gender" value="homme" (change)="radioFun1(test.value)"> 
+<label>Homme</label>
+
+
+<br/><label>Email</label>
+<br/><input  [(ngModel)]="UserDetail.email" type="text" formControlName="email">
+
+<br/><label>Date Début</label> <br/>
+<input type="date" [ngModel]="UserDetail.startDateInAdvans" formControlName="datedebut"><br/>
+
+<label>Département</label><br/>
+<select  #departement (change)="onSlecteddep(departement.value)" formControlName="depa" [(ngModel)]="UserDetail.departement" name="departement">
+<option>RH</option>
+<option>IT</option>
+<option>Finance</option>
+<option>Marketing</option>
+</select>
+
+<br/><label>Agence</label><br/>
+<input [(ngModel)]="UserDetail.agence" type="text" formControlName="agence">
+
+<br/><label>Code Manager</label><br/>
+<input  [(ngModel)]="UserDetail.manager_STF_Code" type="number" formControlName="code">
+
+<br/><button type="submit" class="btn btn-primary" >Enregistrer </button>
+<button type="button" class="btn btn-danger" >Supprimer</button><!--(click)="supprimer(UserDetail.id)"-->
+</form>
+</div>
